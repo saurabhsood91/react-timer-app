@@ -11,18 +11,23 @@ var Timer = React.createClass({
         };
     },
     handleStatusChange: function(newStatus) {
-        return () => {
-            this.setState({
-                timerStatus: newStatus
-            });
-        };
+        this.setState({
+            timerStatus: newStatus
+        });
     },
     startTimer: function() {
         this.timer = setInterval(() => {
             var previousTimeInSeconds = this.state.seconds;
-            this.setState({
-                seconds: previousTimeInSeconds + 1
-            });
+            if(this.state.timerStatus === 'stopped') {
+                this.setState({
+                    timerStatus: 'started',
+                    seconds: previousTimeInSeconds + 1
+                });
+            } else {
+                this.setState({
+                    seconds: previousTimeInSeconds + 1
+                });
+            }
         }, 1000);
     },
     componentDidUpdate: function(prevProps, prevState) {
