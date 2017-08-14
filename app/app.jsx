@@ -12,7 +12,8 @@ var {Route, Router, IndexRoute, hashHistory} = require('react-router');
 // Load foundation
 // use css loader so that it can be required
 // chain style loader as well
-require('style!css!foundation-sites/dist/foundation.min.css');
+// require('style!css!foundation-sites/dist/foundation.min.css');
+
 
 // Load our own styles
 require('style!css!sass!applicationStyles');
